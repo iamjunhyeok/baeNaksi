@@ -13,7 +13,7 @@ import java.util.List;
 public class MemberController {
 
     @Autowired
-    private MemberService memberService;
+    private MemberService memberService;;
 
     @PostMapping(value = "/")
     public void createMember(MemberDto dto) throws Exception {
