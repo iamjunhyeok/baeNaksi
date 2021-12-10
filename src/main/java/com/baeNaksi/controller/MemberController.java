@@ -1,5 +1,6 @@
 package com.baeNaksi.controller;
 
+import com.baeNaksi.model.MemberDto;
 import com.baeNaksi.model.MemberVo;
 import com.baeNaksi.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,11 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @PostMapping(value = "/")
+    public void createMember(MemberDto dto) throws Exception {
+        memberService.createMember(dto);
+    }
+
     @GetMapping
     public List<MemberVo> getMembers() throws Exception {
         return memberService.getMember();
@@ -22,11 +28,6 @@ public class MemberController {
     @GetMapping("/{memberId}")
     public MemberVo getMember(@PathVariable("memberId") String memberId) throws Exception {
         return memberService.getMember(memberId);
-    }
-
-    @PostMapping(value = "/")
-    public void createMember() {
-
     }
 
     @PatchMapping("/{memberId}")

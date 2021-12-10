@@ -1,5 +1,6 @@
 package com.baeNaksi.service;
 
+import com.baeNaksi.model.MemberDto;
 import com.baeNaksi.model.MemberVo;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private SqlSession sqlSession;
+
+    @Override
+    public void createMember(MemberDto dto) throws Exception {
+        sqlSession.selectList("MemberMapper.createMember", dto);
+    }
 
     @Override
     public List<MemberVo> getMember() throws Exception {

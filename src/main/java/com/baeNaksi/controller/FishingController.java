@@ -14,6 +14,11 @@ public class FishingController {
     @Autowired
     private FishingService fishingService;
 
+    @PostMapping(value = "/")
+    public void createFishing() {
+
+    }
+
     @GetMapping
     public List<MemberVo> getFishing() throws Exception {
         return null;
@@ -22,11 +27,6 @@ public class FishingController {
     @GetMapping("/{fishingId}")
     public MemberVo getFishing(@PathVariable("fishingId") String fishingId) throws Exception {
         return null;
-    }
-
-    @PostMapping(value = "/")
-    public void createFishing() {
-
     }
 
     @PatchMapping("/{fishingId}")
